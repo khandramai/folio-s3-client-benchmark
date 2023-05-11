@@ -110,6 +110,7 @@ public class RemoteFileSystemClient {
     public void close() {
       try {
         if (tmp.exists()) {
+          writer.close();
           put(FileUtils.openInputStream(tmp), path);
         }
       } catch (Exception e) {
